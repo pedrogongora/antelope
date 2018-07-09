@@ -1,0 +1,204 @@
+/*  **************************************************************************
+ *
+ *  Boolean model grammar accepting both, boolean equations and transition tables.
+ *  Compiled with JavaCC 5.0 (included in the source tree)
+ *
+ *  Author: Pedro A. Góngora <pedro.gongora@gmail.com>
+ *
+ *  Copyright (C) 2010 Pedro A. Góngora
+ *
+ *  This program is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU General Public License
+ *  as published by the Free Software Foundation; either version 2
+ *  of the License, or (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ *
+ *  *************************************************************************/
+
+options {
+   IGNORE_CASE = false;
+   STATIC      = false; // allows simultaneously running several instances of the parser
+}
+
+
+PARSER_BEGIN (Parser)
+
+    package antelope.booleanmodel.formula.parser;
+    
+    import antelope.*;
+    import antelope.booleanmodel.*;
+    import antelope.booleanmodel.formula.*;
+
+    public class Parser {
+        private BooleanModel model = new BooleanModel();
+    }
+
+PARSER_END (Parser)
+
+
+SKIP: {
+    " "
+    | "\t"
+    | "\n"
+    | "\r"
+    | "\r\n"
+    | < "//" (~["\n", "\r"])* > // single-line comments
+    | < "/*" (~["*"])* "*"
+        ("*" | ~["*","/"] (~["*"])* "*")* "/" > // multi-line comments
+}
+
+
+TOKEN: {
+      <NOT:                 "~"> // logical connectives
+    | <AND:                 "&">
+    | <OR:                  "|">
+    | <IFF:                 "=">
+    | <IMPLIES:             "->">
+    
+    | <LPAR:                "("> // delimiters
+    | <RPAR:                ")">
+    | <LBRACKET:            "[">
+    | <COMMA:               ",">
+    | <COLON:               ";">
+    
+    | <ASSIGN:              ":="> // others
+    | <ASTERISK:            "*">
+    
+    | <TRUE:                "true">
+    | <FALSE:               "false">
+    
+    | <IDENTIFIER:          <LETTER> ( <LETTER> | <DIGIT> | "_" )* >
+    | <TABLE_ENTRY:         <ASTERISK> | <BIN_DIGIT> >
+    | <LETTER:              ["a"-"z","A"-"Z"]>
+    | <DIGIT:               ["0"-"9"]>
+    | <BIN_DIGIT:           ["0"-"1"]>
+    | <BLANKS:              " " | "\t" | "\n" | "\r" | "\r\n">
+    | <ILLEGAL_CHAR:        ~[] >
+}
+
+Model equation_list():
+    { NextStateAssignment assign; }
+{
+    ( assign = assignment() { model.addTransition(assign); } )+ <EOF>
+    { return model; }
+}
+
+
+NextStateAssignment assignment():
+    {
+        Token t;
+        Formula f1 = null, f2 = null;
+    }
+{
+    t = <IDENTIFIER> <ASSIGN> f1 = formula()
+    ( <COMMA> f2 = formula() )?
+    <COLON>
+    {
+        model.addVariable(t.image);
+        return new NextStateAssignment(new Variable(t.image), f1, f2);
+    }
+}
+
+
+Formula formula():
+    {
+        Formula f;
+    }
+{
+    f = iff_expression()
+    { return f; }
+}
+
+
+Formula iff_expression():
+    {
+        Formula f1, f2;
+        Token t;
+    }
+{
+    f1 = impl_expression()
+    (
+        t = <IFF> f2 = iff_expression()
+        { f1 = new Iff(f1, f2); }
+    )?
+    { return f1; }
+}
+
+
+Formula impl_expression():
+    {
+        Formula f1, f2;
+        Token t;
+    }
+{
+    f1 = or_expression()
+    (
+        t = <IMPLIES> f2 = impl_expression()
+        { f1 = new Implication(f1, f2); }
+    )?
+    { return f1; }
+}
+
+
+Formula or_expression():
+    {
+        Formula f1, f2;
+        Token t;
+    }
+{
+    f1 = and_expression()
+    (
+        t = <OR> f2 = or_expression()
+        { f1 = new Or(f1, f2); }
+    )?
+    { return f1; }
+}
+
+
+Formula and_expression():
+    {
+        Formula f1, f2;
+        Token t;
+    }
+{
+    f1 = prefix_expression()
+    (
+        t = <AND> f2 = and_expression()
+        { f1 = new And(f1, f2); }
+    )?
+    { return f1; }
+}
+
+
+Formula prefix_expression():
+    {
+        Formula f;
+        Token   t, varName;
+    }
+{
+      t = <NOT> f = prefix_expression()
+        { return new Not(f); }
+    | f = basic_expression() { return f; }
+}
+
+
+Formula basic_expression():
+    {
+        Formula f, f1, f2;
+        Token t,v;
+    }
+{
+        t = <IDENTIFIER> { model.addVariable(t.image); return new Variable(t.image); }
+    |   t = <TRUE>  { return new BooleanConstant(true); }
+    |   t = <FALSE> { return new BooleanConstant(false); }
+    |   <LPAR> f = iff_expression() <RPAR> { return f; }
+}
+

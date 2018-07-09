@@ -1,0 +1,18 @@
+PLT := ARF; 
+
+AUXINAS := true, AUXINAS; 
+
+IAA := ~AUXINAS; 
+
+ARF := ~IAA; 
+
+SHR := SHR; 
+
+SCR := SHR & SCR & (JKD | ~MGP); 
+
+JKD := SHR & SCR; 
+
+MGP := SHR & SCR & ~WOX; 
+
+WOX := ARF & SHR & SCR & (~MGP | WOX);
+

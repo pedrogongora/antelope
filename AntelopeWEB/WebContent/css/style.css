@@ -1,0 +1,204 @@
+
+body {
+    background-color: white;
+    font-family: 'Cantarell', Tahoma, Arial, sans-serif;
+    font-size: 11pt;
+    text-align: center;
+}
+#all_site {
+    width: 800px;
+    text-align: center;
+}
+hr{
+    width: 80%;
+    color: red;
+}
+h1, h2 {
+    color: #050;
+}
+a, a:visited, a:hover { color: darkred; }
+
+/*
+
+input, select, textarea {
+    font: 9pt/130% Tahoma, Arial, Helvetica, sans-serif;
+}*/
+
+/*#header{
+	width: 100%;
+	text-align: center;
+	font-size: 19pt;
+	font-weight:bold;
+}*/
+
+/*#header a:visited {
+	color: #050;
+	text-decoration:none;
+}*/
+
+/*#content{
+	width: 90%;
+	border-bottom-color: black;
+	border-style: none;
+	border-width: 1px;
+	padding: 20px;
+	margin: 20px;
+}*/
+
+div.text {
+    text-align: justify;
+}
+
+div.imagen_der{  
+float:right;
+padding: 10px;
+}
+
+div.footer { font-size: 11px; text-align: center; padding: 0px 0px 27px 0px; margin: 0px 0px 0px 0px; clear: both; }
+div.footer a:active, div.footer a:link, div.footer a:visited  { text-decoration: none; }
+div.footer p a:active, div.footer p a:link, div.footer p a:visited  { text-decoration: none; }
+div.footer a:hover, div.footer p a:hover { text-decoration: underline; }
+div.footer p { margin: 0px 0px 0px 0px; }
+
+div.footer span.pipe { padding: 0px 1px 0px 1px; }
+div.footer img {border:0}
+div.footer ul { list-style: none; margin: 0px; padding: 0px; background: transparent; }
+div.footer ul li { display: inline; float: none;}
+
+#fixed_menu {
+    position:fixed;
+    left:0px;
+    background-color: #efefef;
+    top:0px;
+    width: 100%;
+    padding-top: 0;
+    margin: 0;
+    border-spacing: 0px;
+    -moz-box-shadow: 5px 5px 5px #ccc;
+    text-shadow: 0px 2px 5px white;
+}
+
+div.about_top { font-size: 18px; text-align: right; margin: 10px 10px 10px 10px; }
+div.about_top a:active, div.about_top a:link, div.about_top a:visited  { text-decoration: none; }
+div.about_top p a:active, div.about_top p a:link, div.about_top p a:visited  { text-decoration: none; }
+div.about_top a:hover, div.about_top p a:hover { text-decoration: underline; }
+
+div.institutions { font-size: 18px; margin: 10px 10px 10px 10px; color: #050; }
+div.institutions a:active, div.institutions a:link, div.institutions a:visited  { text-decoration: none; color: #050; font-weight: bold; }
+div.institutions p a:active, div.institutions p a:link, div.institutions p a:visited  { text-decoration: none; color: #050; font-weight: bold; }
+div.institutions a:hover, div.institutions p a:hover { text-decoration: underline; color: #050; font-weight: bold; }
+
+#references {
+    text-align: justify;
+}
+
+
+
+/* --------------------------------------------------------------------
+    Pedro
+   -------------------------------------------------------------------- */
+
+
+span.ui-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* para autocomplete jquery */
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    /* add padding to account for vertical scrollbar */
+    padding-right: 20px;
+}
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+* html .ui-autocomplete {
+    height: 200px;
+}
+
+/* para tablas de datos */
+table.data
+{
+    border-collapse: separate;
+    border-spacing: 1px;
+}
+table.data,table.data , table.data td
+{
+    /*border: 1px solid #ddd;*/
+    text-align:center;
+    padding-left:  .5em;
+    padding-right: .5em;
+}
+table.data th{
+    color:black;
+    border: 0px solid #f6a828;
+    text-align:center;
+    /*background-color: #f6a828;
+    color: white;*/
+}
+table.data tr.odd0 td{
+    background-color: #eee;
+}
+table.data tr.odd1 td{
+    background-color: #f9f9f9;
+}
+table.data tr.nocycle td{
+    background-color: #eeeeee;
+}
+
+table.icon-link {
+    border-collapse: collapse;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: middle;
+}
+
+
+.ddMenuButton {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+.ddMenuButton li {
+    list-style: none;
+    margin: 0;
+    /*padding: 0;*/
+    padding: 0px 5px;
+    white-space: nowrap;
+}
+.ddMenuButton li button {
+    font-size: smaller;
+}
+.ddMenuButton span.ui-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+.ddMenuButton li {
+    padding: 0px 5px;
+    white-space: nowrap;
+}
+.ddMenuButton li a {
+    padding: 0px 5px;
+    white-space: nowrap;
+}
+.ddMenuButton li ul {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    visibility: hidden;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    -moz-box-shadow: 5px 5px 5px #888;
+    box-shadow: 5px 5px 5px #888;
+    font-size: smaller;
+    z-index: 30;
+}
+
+/* --------------------------------------------------------------------
+    Pedro
+   -------------------------------------------------------------------- */

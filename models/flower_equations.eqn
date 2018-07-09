@@ -1,0 +1,187 @@
+
+ag := ((SEP & (TFL1 & (ag & (WUS & (AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (TFL1 & (ag & (WUS & (AP2 & (LFY & AP1)))))) |
+    ((SEP & (~TFL1 & (ag & (WUS & (AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (~TFL1 & (ag & (WUS & (AP2 & (LFY & AP1)))))) | 
+    ((SEP & (TFL1 & (~ag & (WUS & (AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (TFL1 & (~ag & (WUS & (AP2 & (LFY & AP1)))))) | 
+    ((SEP & (~TFL1 & (~ag & (WUS & (AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (~TFL1 & (~ag & (WUS & (AP2 & (LFY & AP1)))))) | 
+    ((SEP & (TFL1 & (ag & (~WUS & (AP2 & (LFY & AP1)))))) | 
+    ((SEP & (~TFL1 & (ag & (~WUS & (AP2 & (LFY & AP1)))))) | 
+    ((SEP & (TFL1 & (ag & (WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (TFL1 & (ag & (WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((SEP & (~TFL1 & (ag & (WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (~TFL1 & (ag & (WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((SEP & (TFL1 & (~ag & (WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (TFL1 & (~ag & (WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((SEP & (~TFL1 & (~ag & (WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (~TFL1 & (~ag & (WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((SEP & (TFL1 & (ag & (~WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (TFL1 & (ag & (~WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((SEP & (~TFL1 & (ag & (~WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (~TFL1 & (ag & (~WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((SEP & (TFL1 & (~ag & (~WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (TFL1 & (~ag & (~WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((SEP & (~TFL1 & (~ag & (~WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((~SEP & (~TFL1 & (~ag & (~WUS & (~AP2 & (LFY & AP1)))))) | 
+    ((SEP & (~TFL1 & (ag & (WUS & (~AP2 & (~LFY & AP1)))))) | 
+    ((~SEP & (~TFL1 & (ag & (WUS & (~AP2 & (~LFY & AP1)))))) | 
+    ((SEP & (~TFL1 & (~ag & (WUS & (~AP2 & (~LFY & AP1)))))) | 
+    ((~SEP & (~TFL1 & (~ag & (WUS & (~AP2 & (~LFY & AP1)))))) | 
+    ((SEP & (~TFL1 & (ag & (~WUS & (~AP2 & (~LFY & AP1)))))) | 
+    ((~SEP & (~TFL1 & (ag & (~WUS & (~AP2 & (~LFY & AP1)))))) | 
+    ((SEP & (~TFL1 & (~ag & (~WUS & (~AP2 & (~LFY & AP1)))))) | 
+    ((~SEP & (~TFL1 & (~ag & (~WUS & (~AP2 & (~LFY & AP1)))))) | 
+    ((SEP & (TFL1 & (ag & (WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (TFL1 & (ag & (WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (ag & (WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (~TFL1 & (ag & (WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (TFL1 & (~ag & (WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (TFL1 & (~ag & (WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (~ag & (WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (~TFL1 & (~ag & (WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (TFL1 & (ag & (~WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (TFL1 & (ag & (~WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (ag & (~WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (~TFL1 & (ag & (~WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (TFL1 & (~ag & (~WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (TFL1 & (~ag & (~WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (~ag & (~WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (~TFL1 & (~ag & (~WUS & (AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (TFL1 & (ag & (WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (TFL1 & (ag & (WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (ag & (WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (~TFL1 & (ag & (WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (TFL1 & (~ag & (WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (TFL1 & (~ag & (WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (~ag & (WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (~TFL1 & (~ag & (WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (TFL1 & (ag & (~WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (TFL1 & (ag & (~WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (ag & (~WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (~TFL1 & (ag & (~WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (TFL1 & (~ag & (~WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (TFL1 & (~ag & (~WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (~ag & (~WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((~SEP & (~TFL1 & (~ag & (~WUS & (~AP2 & (LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (ag & (WUS & (~AP2 & (~LFY & ~AP1)))))) | 
+    ((~SEP & (~TFL1 & (ag & (WUS & (~AP2 & (~LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (~ag & (WUS & (~AP2 & (~LFY & ~AP1)))))) | 
+    ((~SEP & (~TFL1 & (~ag & (WUS & (~AP2 & (~LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (ag & (~WUS & (~AP2 & (~LFY & ~AP1)))))) | 
+    ((~SEP & (~TFL1 & (ag & (~WUS & (~AP2 & (~LFY & ~AP1)))))) | 
+    ((SEP & (~TFL1 & (~ag & (~WUS & (~AP2 & (~LFY & ~AP1)))))) | 
+    (~SEP & (~TFL1 & (~ag & (~WUS & (~AP2 & (~LFY & ~AP1)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+
+
+AP1 := ((TFL1 & (~ag & (LFY & FT))) | 
+    ((~TFL1 & (~ag & (LFY & FT))) | 
+    ((TFL1 & (~ag & (~LFY & FT))) | 
+    ((~TFL1 & (~ag & (~LFY & FT))) | 
+    ((TFL1 & (~ag & (LFY & ~FT))) | 
+    ((~TFL1 & (~ag & (LFY & ~FT))) | 
+    (~TFL1 & (~ag & (~LFY & ~FT)))))))));
+
+AP2 := ~TFL1;
+
+AP3 := ((UFO & (AP3 & (SEP & (PI & (ag & (LFY & AP1)))))) | 
+    ((~UFO & (AP3 & (SEP & (PI & (ag & (LFY & AP1)))))) | 
+    ((UFO & (~AP3 & (SEP & (PI & (ag & (LFY & AP1)))))) | 
+    ((UFO & (AP3 & (~SEP & (PI & (ag & (LFY & AP1)))))) | 
+    ((UFO & (~AP3 & (~SEP & (PI & (ag & (LFY & AP1)))))) | 
+    ((UFO & (AP3 & (SEP & (~PI & (ag & (LFY & AP1)))))) | 
+    ((UFO & (~AP3 & (SEP & (~PI & (ag & (LFY & AP1)))))) | 
+    ((UFO & (AP3 & (~SEP & (~PI & (ag & (LFY & AP1)))))) | 
+    ((UFO & (~AP3 & (~SEP & (~PI & (ag & (LFY & AP1)))))) | 
+    ((UFO & (AP3 & (SEP & (PI & (~ag & (LFY & AP1)))))) | 
+    ((~UFO & (AP3 & (SEP & (PI & (~ag & (LFY & AP1)))))) | 
+    ((UFO & (~AP3 & (SEP & (PI & (~ag & (LFY & AP1)))))) | 
+    ((UFO & (AP3 & (~SEP & (PI & (~ag & (LFY & AP1)))))) | 
+    ((UFO & (~AP3 & (~SEP & (PI & (~ag & (LFY & AP1)))))) | 
+    ((UFO & (AP3 & (SEP & (~PI & (~ag & (LFY & AP1)))))) | 
+    ((UFO & (~AP3 & (SEP & (~PI & (~ag & (LFY & AP1)))))) | 
+    ((UFO & (AP3 & (~SEP & (~PI & (~ag & (LFY & AP1)))))) | 
+    ((UFO & (~AP3 & (~SEP & (~PI & (~ag & (LFY & AP1)))))) | 
+    ((UFO & (AP3 & (SEP & (PI & (ag & (~LFY & AP1)))))) | 
+    ((~UFO & (AP3 & (SEP & (PI & (ag & (~LFY & AP1)))))) | 
+    ((UFO & (AP3 & (SEP & (PI & (~ag & (~LFY & AP1)))))) | 
+    ((~UFO & (AP3 & (SEP & (PI & (~ag & (~LFY & AP1)))))) | 
+    ((UFO & (AP3 & (SEP & (PI & (ag & (LFY & ~AP1)))))) | 
+    ((~UFO & (AP3 & (SEP & (PI & (ag & (LFY & ~AP1)))))) | 
+    ((UFO & (~AP3 & (SEP & (PI & (ag & (LFY & ~AP1)))))) | 
+    ((UFO & (AP3 & (~SEP & (PI & (ag & (LFY & ~AP1)))))) | 
+    ((UFO & (~AP3 & (~SEP & (PI & (ag & (LFY & ~AP1)))))) | 
+    ((UFO & (AP3 & (SEP & (~PI & (ag & (LFY & ~AP1)))))) | 
+    ((UFO & (~AP3 & (SEP & (~PI & (ag & (LFY & ~AP1)))))) | 
+    ((UFO & (AP3 & (~SEP & (~PI & (ag & (LFY & ~AP1)))))) | 
+    ((UFO & (~AP3 & (~SEP & (~PI & (ag & (LFY & ~AP1)))))) | 
+    ((UFO & (AP3 & (SEP & (PI & (~ag & (LFY & ~AP1)))))) | 
+    ((UFO & (~AP3 & (SEP & (PI & (~ag & (LFY & ~AP1)))))) | 
+    ((UFO & (AP3 & (~SEP & (PI & (~ag & (LFY & ~AP1)))))) | 
+    ((UFO & (~AP3 & (~SEP & (PI & (~ag & (LFY & ~AP1)))))) | 
+    ((UFO & (AP3 & (SEP & (~PI & (~ag & (LFY & ~AP1)))))) | 
+    ((UFO & (~AP3 & (SEP & (~PI & (~ag & (LFY & ~AP1)))))) | 
+    ((UFO & (AP3 & (~SEP & (~PI & (~ag & (LFY & ~AP1)))))) | 
+    ((UFO & (~AP3 & (~SEP & (~PI & (~ag & (LFY & ~AP1)))))) | 
+    ((UFO & (AP3 & (SEP & (PI & (ag & (~LFY & ~AP1)))))) | 
+    (~UFO & (AP3 & (SEP & (PI & (ag & (~LFY & ~AP1))))))))))))))))))))))))))))))))))))))))))))));
+
+EMF1 := ~LFY;
+
+FT := ~EMF1;
+
+FUL := (~TFL1 & ~AP1);
+
+LFY := ((~TFL1 & (EMF1 & (AP1 & FUL))) | 
+    ((TFL1 & (~EMF1 & (AP1 & FUL))) | 
+    ((~TFL1 & (~EMF1 & (AP1 & FUL))) | 
+    ((~TFL1 & (EMF1 & (~AP1 & FUL))) | 
+    ((TFL1 & (~EMF1 & (~AP1 & FUL))) | 
+    ((~TFL1 & (~EMF1 & (~AP1 & FUL))) | 
+    ((~TFL1 & (EMF1 & (AP1 & ~FUL))) | 
+    ((TFL1 & (~EMF1 & (AP1 & ~FUL))) | 
+    ((~TFL1 & (~EMF1 & (AP1 & ~FUL))) | 
+    ((~TFL1 & (EMF1 & (~AP1 & ~FUL))) | 
+    ((TFL1 & (~EMF1 & (~AP1 & ~FUL))) | 
+    (~TFL1 & (~EMF1 & (~AP1 & ~FUL))))))))))))));
+
+PI := ((AP3 & (SEP & (PI & (ag & (LFY & AP1))))) | 
+    ((~AP3 & (SEP & (PI & (ag & (LFY & AP1))))) | 
+    ((AP3 & (~SEP & (PI & (ag & (LFY & AP1))))) | 
+    ((~AP3 & (~SEP & (PI & (ag & (LFY & AP1))))) | 
+    ((AP3 & (SEP & (~PI & (ag & (LFY & AP1))))) | 
+    ((~AP3 & (SEP & (~PI & (ag & (LFY & AP1))))) | 
+    ((AP3 & (~SEP & (~PI & (ag & (LFY & AP1))))) | 
+    ((~AP3 & (~SEP & (~PI & (ag & (LFY & AP1))))) | 
+    ((AP3 & (SEP & (PI & (~ag & (LFY & AP1))))) | 
+    ((AP3 & (~SEP & (PI & (~ag & (LFY & AP1))))) | 
+    ((AP3 & (SEP & (~PI & (~ag & (LFY & AP1))))) | 
+    ((AP3 & (~SEP & (~PI & (~ag & (LFY & AP1))))) | 
+    ((AP3 & (SEP & (PI & (ag & (~LFY & AP1))))) | 
+    ((AP3 & (SEP & (PI & (~ag & (~LFY & AP1))))) | 
+    ((AP3 & (SEP & (PI & (ag & (LFY & ~AP1))))) | 
+    ((~AP3 & (SEP & (PI & (ag & (LFY & ~AP1))))) | 
+    ((AP3 & (~SEP & (PI & (ag & (LFY & ~AP1))))) | 
+    ((~AP3 & (~SEP & (PI & (ag & (LFY & ~AP1))))) | 
+    ((AP3 & (SEP & (~PI & (ag & (LFY & ~AP1))))) | 
+    ((~AP3 & (SEP & (~PI & (ag & (LFY & ~AP1))))) | 
+    ((AP3 & (~SEP & (~PI & (ag & (LFY & ~AP1))))) | 
+    ((~AP3 & (~SEP & (~PI & (ag & (LFY & ~AP1))))) | 
+    ((AP3 & (SEP & (PI & (~ag & (LFY & ~AP1))))) | 
+    ((AP3 & (~SEP & (PI & (~ag & (LFY & ~AP1))))) | 
+    ((AP3 & (SEP & (~PI & (~ag & (LFY & ~AP1))))) | 
+    ((AP3 & (~SEP & (~PI & (~ag & (LFY & ~AP1))))) | 
+    (AP3 & (SEP & (PI & (ag & (~LFY & ~AP1)))))))))))))))))))))))))))))));
+
+SEP := LFY;
+
+TFL1 := ((AP2 & (~LFY & (EMF1 & ~AP1))) | (~AP2 & (~LFY & (EMF1 & ~AP1))));
+
+UFO := UFO;
+
+WUS := ((~SEP & (ag & WUS)) | 
+    ((SEP & (~ag & WUS)) | 
+    (~SEP & (~ag & WUS))));
+
+

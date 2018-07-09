@@ -1,0 +1,229 @@
+/*  **************************************************************************
+ *
+ *  Grammar for CTL with hybrid extensions.
+ *  Compiled with JavaCC 5.0 (included in the source tree)
+ *
+ *  Author: Pedro A. Góngora <pedro.gongora@gmail.com>
+ *
+ *  Copyright (C) 2010 Pedro A. Góngora
+ *
+ *  This program is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU General Public License
+ *  as published by the Free Software Foundation; either version 2
+ *  of the License, or (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ *
+ *  *************************************************************************/
+
+options {
+   IGNORE_CASE = false;
+   STATIC      = false; // allows simultaneously running several instances of the parser
+}
+
+
+PARSER_BEGIN (CTLParser)
+
+    package antelope.ctl.parser;
+    
+    import antelope.ctl.*;
+
+    public class CTLParser {
+    }
+
+PARSER_END (CTLParser)
+
+
+SKIP: {
+    " "
+    | "\t"
+    | "\n"
+    | "\r"
+    | "\r\n"
+    | < "//" (~["\n", "\r"])* > // single-line comments
+    | < "/*" (~["*"])* "*"
+        ("*" | ~["*","/"] (~["*"])* "*")* "/" > // multi-line comments
+}
+
+
+TOKEN: {
+      <NOT:                 "~"> // logical connectives
+    | <AND:                 "&">
+    | <OR:                  "|">
+    | <IFF:                 "=">
+    | <IMPLIES:             "->">
+    
+    | <AX:                  "AX"> // Temporal Ops
+    | <AY:                  "AY">
+    | <AF:                  "AF">
+    | <AG:                  "AG">
+    | <AOPEN:               "A"(<BLANKS>)*<LPAR>>
+//    | <ACLOSE:               "]">
+    | <EX:                  "EX">
+    | <EY:                  "EY">
+    | <EF:                  "EF">
+    | <EG:                  "EG">
+    | <EOPEN:               "E"(<BLANKS>)*<LPAR>>
+//    | <ECLOSE:               "]">
+    | <U:                   "U">
+    
+    | <BIND:                "!"> // hybrid-logic ops
+    | <EXISTS:              "]">
+    | <AT:                  "@">
+    | <AT_VAR:              <AT>(<BLANKS>)*<IDENTIFIER>>
+    | <AT_NOM:              <AT>(<BLANKS>)*<NOMINAL>>
+    | <DOT:                 ".">
+    
+    | <LPAR:                "("> // delimiters
+    | <RPAR:                ")">
+    | <LBRACKET:            "[">
+    | <COMMA:               ",">
+    
+    | <TRUE:                "true">
+    | <FALSE:               "false">
+    
+    | <IDENTIFIER:          <LETTER> ( <LETTER> | <DIGIT> | "_" )* >
+    | <NOMINAL:             <DECIMAL> | <HEX> | <BIN>>
+//    | <ID_OR_NOM:           <IDENTIFIER> | <NOMINAL>>
+    | <DECIMAL:             (<DIGIT>)+>
+    | <HEX:                 ("0x"|"0X")(<HEX_DIGIT>)+>
+    | <BIN:                 ("0b"|"0B")(<BIN_DIGIT>)+>
+    | <#LETTER:             ["a"-"z","A"-"Z"]>
+    | <#DIGIT:              ["0"-"9"]>
+    | <#HEX_DIGIT:          ["0"-"9","a"-"f","A"-"F"]>
+    | <#BIN_DIGIT:          ["0"-"1"]>
+    | <BLANKS:              " " | "\t" | "\n" | "\r" | "\r\n">
+    | <ILLEGAL_CHAR:        ~[] >
+}
+
+
+StateFormula formula():
+    {
+        StateFormula f;
+    }
+{
+    f = iff_expression() <EOF>
+    { return f; }
+}
+
+
+StateFormula iff_expression():
+    {
+        StateFormula f1, f2;
+        Token t;
+    }
+{
+    f1 = impl_expression()
+    (
+        t = <IFF> f2 = iff_expression()
+        { f1 = new Iff(f1, f2); }
+    )?
+    { return f1; }
+}
+
+
+StateFormula impl_expression():
+    {
+        StateFormula f1, f2;
+        Token t;
+    }
+{
+    f1 = or_expression()
+    (
+        t = <IMPLIES> f2 = impl_expression()
+        { f1 = new Implication(f1, f2); }
+    )?
+    { return f1; }
+}
+
+
+StateFormula or_expression():
+    {
+        StateFormula f1, f2;
+        Token t;
+    }
+{
+    f1 = and_expression()
+    (
+        t = <OR> f2 = or_expression()
+        { f1 = new Or(f1, f2); }
+    )?
+    { return f1; }
+}
+
+
+StateFormula and_expression():
+    {
+        StateFormula f1, f2;
+        Token t;
+    }
+{
+    f1 = prefix_expression()
+    (
+        t = <AND> f2 = and_expression()
+        { f1 = new And(f1, f2); }
+    )?
+    { return f1; }
+}
+
+
+StateFormula prefix_expression():
+    {
+        StateFormula f;
+        Token   t, varName;
+    }
+{
+      t = <NOT> f = prefix_expression()
+        { return new Not(f); }
+    | t = <AX>  f = prefix_expression()
+        { return new AX(f); }
+    | t = <AY>  f = prefix_expression()
+        { return new AY(f); }
+    | t = <AF>  f = prefix_expression()
+        { return new AF(f); }
+    | t = <AG>  f = prefix_expression()
+        { return new AG(f); }
+    | t = <EX>  f = prefix_expression()
+        { return new EX(f); }
+    | t = <EY>  f = prefix_expression()
+        { return new EY(f); }
+    | t = <EF>  f = prefix_expression()
+        { return new EF(f); }
+    | t = <EG>  f = prefix_expression()
+        { return new EG(f); }
+    | t = <AT_VAR> <DOT>  f = prefix_expression()
+        { return new AtState(t.image, f); }
+    | t = <AT_NOM> <DOT>  f = prefix_expression()
+        { return new AtState(t.image, f); }
+    | t = <BIND> varName = <IDENTIFIER> <DOT>  f = prefix_expression()
+        { return new StateBinder(varName.image, f); }
+    | t = <EXISTS> varName = <IDENTIFIER> <DOT>  f = prefix_expression()
+        { return new ExistsState(varName.image, f); }
+    | f = basic_expression() { return f; }
+}
+
+
+StateFormula basic_expression():
+    {
+        StateFormula f, f1, f2;
+        Token t,v;
+    }
+{
+        t = <IDENTIFIER> { return new Variable(t.image); }
+    |   t = <AOPEN> f1 = iff_expression() <U> f2 = iff_expression() <RPAR>
+            { return new AU(f1, f2); }
+    |   t = <EOPEN> f1 = iff_expression() <U> f2 = iff_expression() <RPAR>
+            { return new EU(f1, f2); }
+    |   t = <TRUE>  { return new BooleanConstant(true); }
+    |   t = <FALSE> { return new BooleanConstant(false); }
+    |   t = <NOMINAL> {return new Nominal(t.image); }
+    |   <LPAR> f = iff_expression() <RPAR> { return f; }
+}
+

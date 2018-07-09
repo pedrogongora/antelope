@@ -1,0 +1,33 @@
+// reglas raíz
+
+PLT := ~IAA & ARF;
+
+PIN := ~PLT & ~ARF &  MADS |
+       ~PLT &  ARF & ~MADS |
+       ~PLT &  ARF &  MADS |
+        PLT & ~ARF &  MADS |
+        PLT &  ARF & ~MADS |
+        PLT &  ARF &  MADS;
+
+AUXINAS := AUXINAS;
+
+IAA := ~AUXINAS;
+
+ARF := ~IAA;
+
+SHR := SHR;
+
+SCR := SHR & ~SCR &  JKD & ~MGP |
+       SHR &  SCR &  JKD & ~MGP |
+       SHR &  SCR &  JKD &  MGP;
+
+JKD := SHR & SCR;
+
+MGP := SHR & SCR & ~WOX5;
+
+WOX5 :=  ARF &  SHR &  SCR & ~MGP & ~WOX5 |
+         ARF &  SHR &  SCR & ~MGP &  WOX5 |
+         ARF &  SHR &  SCR &  MGP &  WOX5;
+
+MADS := MADS | ~MADS;
+
