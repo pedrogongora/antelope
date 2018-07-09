@@ -3,11 +3,7 @@
 
 ![Image of and Antelope](antelope.png)
 
-Antelope [1], is a  [model checker](https://en.wikipedia.org/wiki/Model_checking) for analyzing and constructing branching-time Boolean Gene Regulatory Networks [2].
-
-I've made most of the coding, except for the jsp-based UI, and we released it in 2011 along with the publication of [1]. Antelope was available at a [IIMAS](https://www.iimas.unam.mx/en/home) server, but as it's former server is not available anymore, I've decided to share the source code here (mainly for educational purposes). Antelope still runs on current JRE versions, however, it may require some effort to compile and run from sources.
-
-Antilope consist of 3 modules: __AntelopeCore__, __AntelopeWEB__ and __EmbeddedAntelope__.
+Antelope [1], is a  [model checker](https://en.wikipedia.org/wiki/Model_checking) for analyzing and constructing branching-time Boolean Gene Regulatory Networks [2]. It consist of 3 modules: __AntelopeCore__, __AntelopeWEB__ and __EmbeddedAntelope__.
 
 #### AntelopeCore
 This is the main model checker, it contains parsers (generated with [JavaCC](https://javacc.org/)) for model specification files and for the Hybrid CTL formulas. The core relies on the [JavaBDD](http://javabdd.sourceforge.net/) library for efficient BDD manipulation. This module includes a very simple REPL user interface for quick testing.
@@ -17,6 +13,10 @@ Antelope's web based user interface. It was designed to run on [Apache Tomcat](h
 
 #### EmbeddedAntelope
 This module was designed to distribute Antelope without having the user to install and configure any web application server. It uses the then new embedded Tomcat distribution.
+
+I've made most of the coding, except for the jsp-based UI, and we released it in 2011 along with the publication of [1]. Antelope was available at a [IIMAS](https://www.iimas.unam.mx/) server, but as it's former server is not available anymore, I've decided to share the source code here (mainly for educational purposes).
+
+Antelope still runs on current JRE versions, however, it may require some effort to compile and run from sources. Or, you can download  the [latest binaries](dist/antelope-1.1.1.zip).
 
 ---
 
