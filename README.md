@@ -18,5 +18,7 @@ Antelope's web based user interface. It was designed to run on [Apache Tomcat](h
 #### EmbeddedAntelope
 This module was designed to distribute Antelope without having to install and configure any web application server. It uses the then new embedded Tomcat distribution.
 
+---
+
 1. Arellano G, Argil J, Azpeitia E, Benítez M, Carrillo M, Góngora P, Rosenblueth DA and Alvarez-Buylla ER: ["Antelope": a hybrid-logic model checker for branching-time Boolean GRN analysis](http://www.biomedcentral.com/1471-2105/12/490/abstract). BMC Bioinformatics 12:490. 2011.
 2. Thomas R, D′Ari R: Biological Feedback. CRC Press 1990.
