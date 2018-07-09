@@ -16,7 +16,7 @@ This is the main model checker, it contains parsers (generated with [JavaCC](htt
 Antelope's web based user interface. It was designed to run on [Apache Tomcat](http://tomcat.apache.org/) ver. 7.
 
 #### EmbeddedAntelope
-This module was designed to distribute Antelope without having to install and configure any web application server. It uses the then new embedded Tomcat distribution.
+This module was designed to distribute Antelope without having the user to install and configure any web application server. It uses the then new embedded Tomcat distribution.
 
 ---
 
