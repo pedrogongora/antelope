@@ -5,7 +5,7 @@
 
 Antelope [1], is a  [model checker](https://en.wikipedia.org/wiki/Model_checking) for analyzing and constructing branching-time Boolean Gene Regulatory Networks [2].
 
-I've made most of the coding, except for the jsp-based UI, and we released it in 2011, along with the publication of [1]. Antelope was available at a [IIMAS](https://www.iimas.unam.mx/en/home) server, but as it's former server is not available anymore, I've decided to share the source code here (mainly for educational purposes). Antelope still runs on current JRE versions, however, it may require some effort to compile and run from sources.
+I've made most of the coding, except for the jsp-based UI, and we released it in 2011 along with the publication of [1]. Antelope was available at a [IIMAS](https://www.iimas.unam.mx/en/home) server, but as it's former server is not available anymore, I've decided to share the source code here (mainly for educational purposes). Antelope still runs on current JRE versions, however, it may require some effort to compile and run from sources.
 
 Antilope consist of 3 modules: __AntelopeCore__, __AntelopeWEB__ and __EmbeddedAntelope__.
 
